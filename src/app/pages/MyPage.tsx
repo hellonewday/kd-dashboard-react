@@ -8,7 +8,7 @@ export function MyPage() {
   const [data, setData] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:8000/reports/person/12291500')
+      .get('https://rok-dashboard-api.herokuapp.com/reports/person/12291500')
       .then((response) => {
         if (response.data.result.length > 0) {
           setData(response.data.result)
