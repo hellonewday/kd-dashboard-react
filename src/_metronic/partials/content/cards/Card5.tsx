@@ -1,16 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {FC} from 'react'
 import {toAbsoluteUrl, KTSVG} from '../../../helpers'
-import {Dropdown1} from '../dropdown/Dropdown1'
 
 type Props = {
   image: string
   title: string
   description: string
   status: 'up' | 'down'
-  statusValue: number
+  statusValue: number | string
   statusDesc: string
-  progress: number
+  progress: number | string
   progressType: string
 }
 
@@ -36,23 +35,6 @@ const Card5: FC<Props> = ({
             {title}
           </a>
         </div>
-
-        <div className='card-toolbar m-0'>
-          <button
-            type='button'
-            className='btn btn-clean btn-sm btn-icon btn-icon-primary btn-active-light-primary me-n3'
-            data-kt-menu-trigger='click'
-            data-kt-menu-placement='bottom-end'
-            data-kt-menu-flip='top-end'
-          >
-            <KTSVG
-              path='/media/icons/duotune/general/gen024.svg'
-              className='svg-icon-3 svg-icon-primary'
-            />
-          </button>
-
-          <Dropdown1 />
-        </div>
       </div>
 
       <div className='card-body d-flex flex-column px-9 pt-6 pb-8'>
@@ -75,14 +57,14 @@ const Card5: FC<Props> = ({
 
           <div className={`fw-bolder me-2 ` + (status === 'up' ? 'text-success' : 'text-danger')}>
             {status === 'up' ? '+' : '-'}
-            {statusValue}%
+            {statusValue}
           </div>
 
           <div className='fw-bold text-gray-400'>{statusDesc}</div>
         </div>
 
         <div className='d-flex align-items-center fw-bold'>
-          <span className='badge bg-light text-gray-700 px-3 py-2 me-2'>{progress}%</span>
+          <span className='badge bg-light text-gray-700 px-3 py-2 me-2'>{progress}</span>
           <span className='text-gray-400 fs-7'>{progressType}</span>
         </div>
       </div>
